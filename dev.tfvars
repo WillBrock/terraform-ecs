@@ -1,0 +1,5 @@
+cluster_name             = "will-test"
+region                   = "us-east-1"
+logs_group               = "/ecs/will-test"
+nginx_ecr_repository_url = "<account number>.dkr.ecr.us-east-1.amazonaws.com/will-nginx:latest"
+php_ecr_repository_url   = "<account number>.dkr.ecr.us-east-1.amazonaws.com/will-php:latest"

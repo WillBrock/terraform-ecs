@@ -13,13 +13,11 @@ provider "aws" {
 }
 
 locals {
-	cluster_name = "will-test"
-	region       = "us-east-1"
-	logs_group   = "/ecs/will-test"
+	services = ["nginx", "php"]
 }
 
 resource "aws_ecs_cluster" "my_cluster" {
-	name = local.cluster_name
+	name = var.cluster_name
 }
 
 resource "aws_ecs_task_definition" "nginx" {
@@ -48,8 +46,8 @@ resource "aws_ecs_task_definition" "nginx" {
 			logConfiguration = {
 				logDriver = "awslogs"
 				options = {
-					"awslogs-group"         = local.logs_group
-					"awslogs-region"        = local.region
+					"awslogs-group"         = var.logs_group
+					"awslogs-region"        = var.region
 					"awslogs-stream-prefix" = "nginx"
 				}
 			}
@@ -76,8 +74,8 @@ resource "aws_ecs_task_definition" "php" {
 			logConfiguration = {
 				logDriver = "awslogs"
 				options = {
-					"awslogs-group"         = local.logs_group
-					"awslogs-region"        = local.region
+					"awslogs-group"         = var.logs_group
+					"awslogs-region"        = var.region
 					"awslogs-stream-prefix" = "php"
 				}
 			}
