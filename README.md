@@ -2,7 +2,7 @@
 
 ## Build the ECS infrastructure
 
-Replace the values in variables.tf with your ECR
+Update the variables in dev.tfvars to fit your needs
 
 ```bash
 terraform apply
