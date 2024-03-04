@@ -4,7 +4,7 @@ module "vpc" {
 	source  = "terraform-aws-modules/vpc/aws"
 	version = "5.1.1"
 
-	name            = "ecs-test"
+	name            = "${var.cluster_name}-vpc"
 	cidr            = "10.2.0.0/16"
 	azs             = ["us-east-1a", "us-east-1d"]
 	private_subnets = ["10.2.64.0/20", "10.2.128.0/20"]
